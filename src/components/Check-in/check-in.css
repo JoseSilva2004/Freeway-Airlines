@@ -1,0 +1,54 @@
+.qr-checkin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.qr-checkin-card {
+    width: 60%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #bfffcc;
+    padding: 20px;
+    text-align: center;
+}
+
+.qr-checkin-header {
+    margin-bottom: 20px;
+}
+
+.qr-checkin-title {
+    font-size: 2rem;
+    color: #000000;
+}
+
+.qr-code-section {
+    margin-top: 20px;
+}
+
+.qr-code-image {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.qr-checkin-card button {
+    background-color: #22d449;
+    border-color: #22d449;
+    height: 40px;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.qr-checkin-card button:hover {
+    background-color: #1cb23a;
+    border-color: #1cb23a;
+}
+
+.qr-checkin-card p {
+    font-size: 1rem;
+    color: #000000;
+}

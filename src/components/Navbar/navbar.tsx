@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './navbar.css'; // Importa el archivo CSS para estilos personalizados
-import logo from '../../assets/logo-avion.png'; // Asegúrate de que la ruta del logo sea correcta
+import './navbar.css';
+import logo from '../../assets/logo-avion.png'; 
 
 const Navbar: React.FC = () => {
     const location = useLocation();
@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
                     <li className={`nav-item ${currentPath === '/boleteria' ? 'active' : ''}`}>
                         <Link className="nav-link" to="/boleteria">Boleteria</Link>
                     </li>
-                    <li className={`nav-item ${currentPath === '/reservaciones' ? 'active' : ''}`}>
+                 <li className={`nav-item ${currentPath === '/reservaciones' ? 'active' : ''}`}>
                         <Link className="nav-link" to="/reservaciones">Reservaciones</Link>
                     </li>
                     <li className={`nav-item ${currentPath === '/itinerario' ? 'active' : ''}`}>
