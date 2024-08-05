@@ -1,8 +1,8 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./navbar.css";
-import logo from "../../assets/logo-avion.png"; 
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './navbar.css';
+import logo from '../../assets/logo-avion.png'; 
 
 const Navbar: React.FC = () => {
   const location = useLocation();
