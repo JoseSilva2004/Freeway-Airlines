@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './check-in.css';
-import qrCodeImage from '../../assets/codigoQR.png'; // Asegúrate de tener una imagen de QR en esta ruta
+import qrCodeImage from '../../assets/codigoQR.png';
 
 const Check_In: React.FC = () => {
     return (

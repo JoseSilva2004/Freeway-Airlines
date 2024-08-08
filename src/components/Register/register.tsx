@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './register.css'; // Importa el archivo CSS para estilos personalizados
+import './register.css'; 
 import logo from '../../assets/logo-avion.png'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faPhone, faKey, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom'; // Usa useNavigate en lugar de useHistory
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'; 
 
 // Interfaz para el estado del formulario
 interface FormData {
@@ -40,7 +41,6 @@ const Register: React.FC = () => {
     });
 
     const [errors, setErrors] = useState<FormErrors>({});
-    const [successMessage, setSuccessMessage] = useState<string | null>(null); // Estado para mensaje de éxito
     const navigate = useNavigate(); // Hook para redirección
 
     const validateField = (name: string, value: string) => {
@@ -107,15 +107,12 @@ const Register: React.FC = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (validate()) {
-            // Aquí simula un registro exitoso
-            setSuccessMessage('Registro exitoso. Redirigiendo a Iniciar Sesión...');
-            
-            // Redirigir a la página de inicio de sesión después de un pequeño retraso
-            setTimeout(() => {
-                navigate('/login'); 
-            }, 2000);
+            toast.info('Registro Exitoso!!. Redirigiendo a inicio de sesión', {
+                autoClose: 3000,
+                onClose: () => navigate('/login'),
+            });
         } else {
-            console.log('Formulario inválido');
+            toast.info('Rellene los campos que faltan')
         }
     };
 
@@ -127,11 +124,6 @@ const Register: React.FC = () => {
                         <img src={logo} alt="Logo" className="register-logo" />
                         <h2 className="register-title">Registrarse</h2>
                     </div>
-                    {successMessage && (
-                        <div className="alert alert-success" role="alert">
-                            {successMessage}
-                        </div>
-                    )}
                     <form onSubmit={handleSubmit}>
                         <div className="row">
                             <div className="col-md-6">
@@ -257,6 +249,9 @@ const Register: React.FC = () => {
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div>
+                            <ToastContainer />
                         </div>
                         <button type="submit" className="btn btn-primary btn-block mt-4">Registrarse</button>
                     </form>

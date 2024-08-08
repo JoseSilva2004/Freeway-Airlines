@@ -9,6 +9,8 @@ import './App.css';
 import Itinerario from './components/Itinerarios/itinerarios';
 import Check_In from './components/Check-in/check-in';
 import Reservaciones from './components/Reservaciones/reservaciones'
+import 'react-toastify/dist/ReactToastify.css';
+import Boleteria from './components/Boleteria/boleteria';
 
 const App: React.FC = () => {
     return (
@@ -25,6 +27,7 @@ const App: React.FC = () => {
                             <Route path="/itinerario" element={<Itinerario />} />
                             <Route path="/reservaciones" element={<Reservaciones />} />
                             <Route path="/check-in" element={<Check_In />} />
+                            <Route path="/boleteria" element={<Boleteria />} />
                         </Routes>
                     </div>
                     <Footer />

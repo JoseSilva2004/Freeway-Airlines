@@ -4,7 +4,8 @@ import './login.css';
 import logo from '../../assets/logo-avion.png'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify'; 
 
 interface LoginData {
     username: string;
@@ -22,8 +23,7 @@ const Login: React.FC = () => {
         password: ''
     });
 
-    const [errors, setErrors] = useState<LoginErrors>({});
-    const [successMessage, setSuccessMessage] = useState<string | null>(null); 
+    const [errors, setErrors] = useState<LoginErrors>({}); 
     const navigate = useNavigate(); 
 
 
@@ -64,13 +64,12 @@ const Login: React.FC = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (validate()) {
-            setSuccessMessage('Inicio de Sesión exitoso. Redirigiendo a Itinerarios...');
-            
-            setTimeout(() => {
-                navigate('/itinerario'); 
-            }, 2000);
+            toast.info('Sesión iniciada correctamente!!. Redirigiendo a itinerario', {
+                autoClose: 3000,
+                onClose: () => navigate('/itinerario'),
+            });
         } else {
-            console.log('Formulario inválido');
+            toast.info('Rellene los campos que faltan')
         }
     };
 
@@ -82,11 +81,6 @@ const Login: React.FC = () => {
                         <img src={logo} alt="Logo" className="register-logo" />
                         <h2 className="register-title">Iniciar Sesión</h2>
                     </div>
-                    {successMessage && (
-                        <div className="alert alert-success" role="alert">
-                            {successMessage}
-                        </div>
-                    )}
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="username">Usuario</label>
@@ -121,6 +115,9 @@ const Login: React.FC = () => {
                                 />
                                 {errors.password && <div className="invalid-feedback">{errors.password}</div>}
                             </div>
+                        </div>
+                        <div>
+                            <ToastContainer />
                         </div>
                         <button type="submit" className="btn btn-primary btn-block mt-4">Iniciar Sesión</button>
                     </form>

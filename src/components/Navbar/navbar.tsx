@@ -1,12 +1,23 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './navbar.css';
 import logo from '../../assets/logo-avion.png'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const currentPath = location.pathname;
+
+  const handleLogout = () => {
+    toast.info('Sesión cerrada. Volviendo a Home', {
+      autoClose: 3000, 
+      onClose: () => navigate('/'),
+    });
+  };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-custom fixed-top">
@@ -56,7 +67,7 @@ const Navbar: React.FC = () => {
             }`}
           >
             <Link className="nav-link" to="/reservaciones">
-              Reservaciones
+              Reservación
             </Link>
           </li>
           <li
@@ -65,7 +76,7 @@ const Navbar: React.FC = () => {
             }`}
           >
             <Link className="nav-link" to="/itinerario">
-              Itinerarios
+              Itinerario
             </Link>
           </li>
           <li
@@ -75,7 +86,19 @@ const Navbar: React.FC = () => {
               Iniciar Sesión
             </Link>
           </li>
+          <li className="nav-item">
+            <button
+              className="btn btn-link nav-link"
+              onClick={handleLogout}
+              aria-label="Cerrar sesión"
+            >
+              <FontAwesomeIcon icon={faSignOutAlt} className="logout-icon" />
+            </button>
+          </li>
         </ul>
+      </div>
+      <div>
+        <ToastContainer />
       </div>
     </nav>
   );

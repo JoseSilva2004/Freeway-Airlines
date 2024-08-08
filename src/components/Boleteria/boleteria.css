@@ -1,0 +1,95 @@
+.contenedor {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .lista {
+    list-style-type: none;
+  }
+  
+  .lista1 {
+    background-color: #bfffcc;
+    border-radius: 5px;
+    list-style-type: none;
+    padding: 10px;
+    margin: 50px;
+  }
+  
+  .contenido {
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+  }
+  
+  .contenido2 {
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+  }
+  
+  p {
+    margin-left: 20px;
+  }
+  
+  .p {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .btn {
+    font-weight: bold;
+    color: white;
+    background-color: #06862c;
+  }
+  
+  .btn:hover {
+    background-color: #4bad50;
+    color: white;
+  }
+  
+  .form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container form div {
+    margin-bottom: 10px;
+  }
+  
+  .form-container form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-container form input,
+  .form-container form select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .boton-cancel {
+    background-color: #dc3545;
+  }
+  

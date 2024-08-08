@@ -46,3 +46,13 @@
 .navbar {
     padding: 1rem 2rem;
 }
+
+.logout-icon {
+    font-size: 20px;
+    color: #000;
+    margin-top: 12px; 
+}
+
+.nav-item .btn-link {
+    padding: 0; 
+}

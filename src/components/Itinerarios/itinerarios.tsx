@@ -2,6 +2,8 @@ import React from 'react';
 import { useTable, Column } from 'react-table';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlane } from '@fortawesome/free-solid-svg-icons'; 
+import { useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import './itinerarios.css';
 
 interface FlightData {
@@ -13,6 +15,8 @@ interface FlightData {
 }
 
 const Itinerario: React.FC = () => {
+    const navigate = useNavigate();
+
     // Datos de ejemplo
     const data: FlightData[] = React.useMemo(
         () => [
@@ -59,12 +63,22 @@ const Itinerario: React.FC = () => {
     const columns: Column<FlightData>[] = React.useMemo(
         () => [
             {
-                Header: 'N# de vuelo',
+                Header: 'Vuelo',
                 accessor: 'flightNumber',
                 Cell: ({ value }: { value: string }) => (
                     <div className="flight-number-cell">
                         {value}
-                        <a href={`#${value}`} className="flight-icon-link">
+                        <a
+                            href="#"
+                            className="flight-icon-link"
+                            onClick={(e) => {
+                                e.preventDefault(); 
+                                toast.info('Vuelo seleccionado. Redirigiendo a reservación', {
+                                    autoClose: 3000,
+                                    onClose: () => navigate('/reservaciones'), 
+                                });
+                            }}
+                        >
                             <FontAwesomeIcon icon={faPlane} className="flight-icon" />
                         </a>
                     </div>
@@ -87,7 +101,7 @@ const Itinerario: React.FC = () => {
                 accessor: 'destination',
             },
         ],
-        []
+        [navigate]
     );
 
     // Estado para el término de búsqueda
@@ -144,9 +158,11 @@ const Itinerario: React.FC = () => {
                     </tbody>
                 </table>
             </div>
+            <div>
+                <ToastContainer />
+            </div>
         </div>
     );
 };
 
 export default Itinerario;
-
