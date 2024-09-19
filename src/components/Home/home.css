@@ -32,11 +32,15 @@
 }
 
 .offers h2, .specials h2 {
+    max-width: 400px;
+    margin: auto;
     font-size: 2rem;
     color: #0f3d15;
     box-shadow: #052405;
     text-align: center;
     margin-bottom: 1.5rem;
+    background-color: #b2f2b8;
+    border-radius: 15px;
 }
 
 .offers-container, .specials-container {
